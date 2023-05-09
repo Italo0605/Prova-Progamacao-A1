@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -28,16 +27,18 @@ public class App {
         double km140 = scanner.nextDouble();
         double consumo140 = km140 / 14.5;
 
-
-        double distanciaTotal = km60 + km80 + km100 + km120 + km140;
+        //CALCULOS PARA A VELOCIDADE MEDIA PONDERADA
         double tempoTotal = (km60/60) + (km80/80) + (km100/100) + (km120/120) + (km140/140);
-        double qtnConsumoTotal = consumo60 + consumo80 + consumo100 + consumo120 + consumo140;
+        double distanciaTotal = km60 + km80 + km100 + km120 + km140;
         double veloMediaPonderada = (distanciaTotal/ tempoTotal);
+
+
+        double qtnConsumoTotal = consumo60 + consumo80 + consumo100 + consumo120 + consumo140;
         double custoTotal = valor * qtnConsumoTotal;
-        System.out.println(qtnConsumoTotal+" "+ veloMediaPonderada+ " "+ custoTotal );
         System.out.println("Placa do veículo: "+ placaVeiculo);
-        System.out.println("Consumo total: "+ qtnConsumoTotal ); //
-        System.out.println("Valor total: "+ custoTotal ); //
-        System.out.println("Velocidade média ponderada: "+ veloMediaPonderada);
+        System.out.println("Consumo total: "+ String.format("%.4f",qtnConsumoTotal)+" litros"); //
+        System.out.println("Valor total: R$ "+ String.format("%.2f", custoTotal)); //
+        System.out.println("Velocidade média ponderada: "+ String.format("%.4f",veloMediaPonderada)+" km/h");
+        scanner.close();
     }
 }
